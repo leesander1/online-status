@@ -1,0 +1,74 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/device-icons.html">
+
+<dom-module id="online-status">
+  <template>
+    <style>
+    </style>
+    <div class="container">
+      <iron-icon id="indicator" icon="[[_setConnection(connection)]]"></iron-icon>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'online-status',
+
+      properties: {
+        /**
+        * `connection` indicates if the component will use onLine API to get
+        * current _state
+        */
+        connection: {
+            type: Boolean,
+            value: false,
+            oberserver: '_connectionChanged'
+        },
+
+      },
+
+      // Element Lifecycle
+
+      attached: function() {
+        // `attached` fires once the element and its parents have been inserted
+        // into a document.
+        //
+        // This is a good place to perform any work related to your element's
+        // visual state or active behavior (measuring sizes, beginning animations,
+        // loading resources, etc).
+        var self = this;
+        online = navigator.onLine;
+        self.connection = online;
+
+            window.addEventListener('online', function(e) {
+              self.connection = true;
+            });
+
+            window.addEventListener('offline', function(e) {
+              self.connection = false;
+            });
+      },
+
+      // Element Behavior
+      _connectionChanged: function(){
+        var self = this;
+        self._setConnection();
+    },
+
+    _setConnection: function(connection){
+      var self = this;
+      if(connection){
+        self.$.indicator.style.color = "#00C853";
+        return 'device:signal-wifi-4-bar';
+      }
+      else{
+        self.$.indicator.style.color = "#BDBDBD";
+        return 'device:signal-wifi-off';
+      }
+  },
+
+    });
+  </script>
+</dom-module>
