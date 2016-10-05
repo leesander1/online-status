@@ -1,6 +1,7 @@
 # \<online-status\>
 
 Displays icon to indicate network connection
+Demo: https://leesander1.github.io/online-status/components/online-status/demo/
 
 ## Install the Polymer-CLI
 

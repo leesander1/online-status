@@ -1,7 +1,24 @@
 {
   "name": "online-status",
+  "version": "1.0.1",
   "description": "Displays icon to indicate network connection",
+  "homepage": "https://leesander1.github.io/online-status",
+  "authors": [
+  "Lee Sander <lee@leesander.com> (https://leesander.com)"
+],
+"license": "Apache-2.0",
+"keywords": [
+  "web-components",
+  "polymer",
+  "connection",
+  "online"
+],
+"repository": {
+  "type": "git",
+  "url": "git://github.com/leesander1/online-status.git"
+},
   "main": "online-status.html",
+  "ignore": [],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-icons": "PolymerElements/iron-icons#^1.1.3"
